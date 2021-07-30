@@ -59,7 +59,14 @@ Task 4
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
 
-
+    const someTextBtn = document.querySelector('#addTextBtn')
+    const generateP = () => {
+        const p = document.createElement('p')
+        p.textContent = "I am the punishment of God, if you had not committed great sins, God would not have sent a punishment like me on you"
+        const newArticle = document.getElementById('mainArticles')
+        newArticle.appendChild(p)
+    }
+    someTextBtn.addEventListener('click', generateP)
 
 /*
 Task 5
