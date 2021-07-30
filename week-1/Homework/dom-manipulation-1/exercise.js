@@ -112,3 +112,16 @@ Using the same function in Task 3, every time the 'Change colour' button is clic
 The next color when you are in the last color of the array will be the first color again.
 */
 
+const colors = ["#33FF9C", "#33ECFF", "#77360C", "#770C65", "#0C1677"]
+let bgPageColors = document.querySelector('body')
+let timesClicked = -1
+
+changeColor.addEventListener('click', () => {
+    if (timesClicked < colors.length) {
+        timesClicked ++
+    } else {
+        timesClicked = 0;
+    }
+    bgPageColors.style.backgroundColor = colors[timesClicked]
+})
+
