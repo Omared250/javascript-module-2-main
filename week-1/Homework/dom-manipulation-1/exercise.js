@@ -64,7 +64,7 @@ When a user clicks the ‘Add some text’ button, a new paragraph should be add
         const p = document.createElement('p')
         p.textContent = "I am the punishment of God, if you had not committed great sins, God would not have sent a punishment like me on you"
         const newArticle = document.getElementById('mainArticles')
-        newArticle.appendChild(p)
+        newArticle.prepend(p) // if you use prepend() the paragraph is going to the top and appendChild() to the bottom 
     }
     someTextBtn.addEventListener('click', generateP)
 
@@ -80,7 +80,7 @@ When the 'Larger links!' button is clicked, the text of all links on the page sh
         let allLinks = document.querySelectorAll('a')
 
         for (i = 0; i < allLinks.length; i++) {
-            allLinks[i].style.fontSize = '30px'
+            allLinks[i].style.fontSize = '25px'
         }
     })
 
@@ -94,14 +94,14 @@ When the 'Add' button is clicked, get the text inside the input field and create
 Also clear the text inside the input field
 */
     const addButton = document.querySelector('#addArticleBtn')
-    const addingArticle = () => {
+    addButton.addEventListener('click', () => {
+        const addArticle = document.querySelector('.addArticle')
         const creatingP = document.createElement('p')
-        const addArticle = document.querySelector('#addArticle')
-        creatingP.textContent = addArticle.innerHTML
+        creatingP.textContent = addArticle.value
         const learningArea = document.querySelector('#mainArticles')
-        learningArea.appendChild(creatingP)
-    }
-    addButton.addEventListener('click', addingArticle)
+        learningArea.prepend(creatingP)
+        addArticle.value = ''
+    })
 
 /*
 Task 7
