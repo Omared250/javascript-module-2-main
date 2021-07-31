@@ -35,3 +35,15 @@ greenChange.addEventListener('click', () => {
     const volunterBg = document.querySelector('#volunterBtn');
     volunterBg.style.backgroundColor = "#8c9c08"
 })
+
+// part 2
+
+const checkingForm = document.querySelectorAll('div .form-group')
+checkingForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const text = event.target.elements.text.value
+
+    if (text.length > 0) {
+        
+    }
+})
