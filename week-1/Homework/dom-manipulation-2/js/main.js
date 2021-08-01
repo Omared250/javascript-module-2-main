@@ -38,12 +38,36 @@ greenChange.addEventListener('click', () => {
 
 // part 2
 
-const checkingForm = document.querySelectorAll('div .form-group')
-checkingForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-    const text = event.target.elements.text.value
+const checkingForm = document.querySelector('form')
 
-    if (text.length > 0) {
+const emailEl = document.querySelector('#exampleInputEmail1')
+const nameEl = document.querySelector('#example-text-input')
+const descriptionEl = document.querySelector('#exampleTextarea')
+
+checkingForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    let isValidEmail = emailEl.indexOf('@')
+    let isValidName = nameEl.value.length.trim() > 0
+    let isValidDescription = descriptionEl.value.length.trim() > 0
+
+    if (isValidEmail == 1 && isValidName && isValidDescription) {
+        emailEl.value = ''
+        nameEl.value = ''
+        descriptionEl.value = ''
         
+        alert('thank you for filling out the form')
+
+        emailEl.style.backgroundColor = "white"
+        nameEl.style.backgroundColor = "white"
+        descriptionEl.style.backgroundColor = "white"
+    } else {
+        if (!isValidEmail == 1) {
+            emailEl.style.backgroundColor = "red"
+        } else if (!isValidName) {
+            nameEl.style.backgroundColor = "red"
+        } else if (!isValidDescription) {
+            descriptionEl.style.backgroundColor = "red"
+        }
     }
 })
