@@ -47,11 +47,11 @@ const descriptionEl = document.querySelector('#exampleTextarea')
 checkingForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    let isValidEmail = emailEl.indexOf('@')
-    let isValidName = nameEl.value.length.trim() > 0
+    let isValidEmail = emailEl.value.includes('@')
+    let isValidName = nameEl.length.value.trim() > 0
     let isValidDescription = descriptionEl.value.length.trim() > 0
 
-    if (isValidEmail == 1 && isValidName && isValidDescription) {
+    if (isValidEmail && isValidName && isValidDescription) {
         emailEl.value = ''
         nameEl.value = ''
         descriptionEl.value = ''
