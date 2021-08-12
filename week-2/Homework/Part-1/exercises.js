@@ -73,7 +73,40 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  const contentEl = document.querySelector('#content')
+  const bookContainer = document.createElement('div')
+  contentEl.append(bookContainer)
+
+  books.forEach(book => {
+    // creating title and author of the book
+    const titleAuthorBook = document.createElement('p')
+    titleAuthorBook.textContent = book.title + " " + "-" + " " + book.author;
+
+
+    // list of books
+    const listOfBooks = document.createElement('ul')
+    listOfBooks.classList.add('book-container')
+    const bookItem = document.createElement('li')
+    bookItem.classList.add('book-item')
+
+    // append the tags
+    bookItem.append(titleAuthorBook)
+    listOfBooks.append(bookItem)
+
+    // adding images
+    const bookImg = document.createElement('img')
+    bookImg.classList.add('book-image')
+    bookImg.src = book.bookCover
+    bookItem.append(bookImg)
+    
+    bookContainer.append(listOfBooks)
+
+    if(book.alreadyRead) {
+      return bookItem.style.backgroundColor = "green"
+    } else {
+      return bookItem.style.backgroundColor = "red"
+    }
+  });
 }
 
 //
@@ -102,17 +135,20 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
+    bookCover: "https://images-na.ssl-images-amazon.com/images/I/81zpLhP1gWL.jpg"
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
+    bookCover: "https://images-na.ssl-images-amazon.com/images/I/71HMyqG6MRL.jpg"
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
+    alreadyRead: true,
+    bookCover: "https://images-na.ssl-images-amazon.com/images/I/41as+WafrFL.jpg"
   }
 ];
 

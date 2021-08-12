@@ -157,3 +157,21 @@ body {
 	   max-height: 80px;
 	}
 }
+
+/* book exercise classes */
+
+.book-container {
+	display: inline-block;
+}
+
+.book-item { 
+	max-width: 400px;
+	list-style: none;
+}
+
+.book-image {
+	width: 70%;
+	display: block;
+	margin: auto;
+	padding-bottom: 2em;
+}
