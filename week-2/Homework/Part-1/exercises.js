@@ -33,7 +33,14 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  const contentEl = document.querySelector('#content')
+  const unorderList = document.createElement('ul')
+  contentEl.append(unorderList)
+  shopping.map(shoppingItem => {
+    const listItem = document.createElement('li')
+    listItem.textContent = shoppingItem
+    unorderList.append(listItem)
+  })
 }
 
 /**
