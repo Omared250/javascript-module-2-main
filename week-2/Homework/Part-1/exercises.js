@@ -14,7 +14,15 @@
  * </div>
  */
 function exerciseOne(arrayOfPeople) {
-  let content = document.querySelector("#content");
+  const contentEl = document.querySelector('#content')
+  arrayOfPeople.forEach(personObject => {
+    const personName = document.createElement('h1')
+    const personJob = document.createElement('h2')
+    personName.textContent = personObject.name
+    personJob.textContent = personObject.job  
+    contentEl.append(personName)
+    contentEl.append(personJob)
+  });
 }
 
 /**
