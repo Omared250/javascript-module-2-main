@@ -8,5 +8,7 @@ var kitten = {
     furColour: "brown"
 };
 
+console.log(Object.values(kitten));
+
 // YOUR CODE HERE
 
