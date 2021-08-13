@@ -9,10 +9,10 @@ let person = {
     age: 25,
     currentAddress: "Glasgow",
     changeAddress: function(newAddress) {
-        console.log(currentAddress = newAddress); 
+        person.currentAddress = newAddress; 
     },
     celebrateBirthday: function() {
-        console.log(that.age = that.age + 1);
+        this.age = this.age + 1;
     }
 };
 
