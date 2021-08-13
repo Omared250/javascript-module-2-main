@@ -69,10 +69,9 @@ function showMovies(movies) {
 
   let numberOfMovies = document.querySelector('#movies-number')
   numberOfMovies.append(movies.length)
-
 }
 
-showMovies(movies)
+showMovies(movies) 
 
 
 // create a new movie object for your favorite movie

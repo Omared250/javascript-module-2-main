@@ -10,14 +10,15 @@ Update your code to make the colour change every 5 seconds to something differen
 ================
 */
 
+const colors = ["black", "blue", "brown", "green"]
+let i = -1
+
 function change() {
     let containerEl = document.querySelector('#main')
-    let colors = ["black", "blue", "brown", "green"]
-    let changedColor = 0
-    for(let i = 0; i < colors.length; i++) {
-        changedColor = colors[i]
+    containerEl.style.backgroundColor = colors[i]
+    i++;
+    if(i > colors.length - 1) {
+        i = -1
     }
-    containerEl.style.backgroundColor = changedColor
 }
-
-setInterval(change, 5000)
+setInterval(change, 1000)
