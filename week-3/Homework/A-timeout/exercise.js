@@ -21,4 +21,5 @@ function change() {
         i = -1
     }
 }
+
 setInterval(change, 1000)

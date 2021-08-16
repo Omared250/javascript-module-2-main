@@ -59,22 +59,70 @@ var movies = [
 ];
 
 // create showMovies function
-function showMovies(movies) { 
-  movies.forEach(movie => {
-    let containerEl = document.querySelector('#all-movies')
-    let movieEl = document.createElement('p')
-    movieEl.textContent = movie.title + " - " + movie.director
-    containerEl.append(movieEl)
-  });
+var movieCounter = 0;
 
-  let numberOfMovies = document.querySelector('#movies-number')
-  numberOfMovies.append(movies.length)
+const allMoviesEl = document.getElementById("all-movies")
+const moviesCountEl = document.getElementById("movies-number")
+
+// create showMovies function
+function showMovies(movies) {
+  if (!Array.isArray(movies)) return
+
+  movies.forEach(movie => addMovie(movie))
 }
-
-showMovies(movies) 
-
 
 // create a new movie object for your favorite movie
 
+const myFvaoriteMovie = {
+  title: "Joker",
+  director: "Todd Phillips",
+  type: "psychological suspense",
+  haveWatched: true
+}
 
 // create addMovies function
+
+function addMovie(movie) {
+  const pEl = document.createElement("p");
+  const { title, director } =  movie
+  pEl.textContent = `${title}, - ${director}`
+
+  allMoviesEl.appendChild(pEl)
+
+  moviesCountEl.textContent = ++movieCounter;
+}
+
+setTimeout(() => showMovies(movies), 1000)
+setTimeout(() => addMovie(myFvaoriteMovie), 2000)
+
+// Form
+const formEl = document.createElement("form")
+allMoviesEl.before(formEl)
+
+const sampleMovie = movies[0]
+Object.keys(sampleMovie).forEach(key => {
+  const inputEL = document.createElement("input")
+  inputEL.setAttribute("id", `${key}`)
+  inputEL.placeholder = key
+  formEl.appendChild(inputEL)
+})
+const submitButton = document.createElement("button")
+submitButton.textContent = "Save"
+formEl.appendChild(submitButton)
+formEl.addEventListener("submit", onSave)
+
+function onSave(ev) {
+  ev.preventDefault()
+
+  const newMovie = {}
+
+  // console.log(ev.target.elements)
+
+  Object.keys(sampleMovie).forEach(key => {
+    newMovie[key] = ev.target.elements[key].value
+  })
+
+  addMovie(newMovie)
+
+  // console.log("new one: ", newMovie)
+}
